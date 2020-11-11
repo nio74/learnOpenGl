@@ -10,8 +10,8 @@
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
 
-const int SCR_WIDTH = 800;
-const int SCR_HEIGHT = 600;
+const int SCR_WIDTH = 1000;
+const int SCR_HEIGHT = 800;
 
 
 
@@ -66,7 +66,14 @@ int main() {
         // positions         // colors
          0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // bottom right
         -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
-         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // top 
+         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f,    // top
+
+         //secondo triangolo
+
+         0.1f, 0.0f, 0.0f,  0.0f, 1.0f, 0.0f, //angolo sinistro
+         1.0f, 0.0f, 0.0f,  1.0f, 0.0f, 0.0f,  // angolo destro
+         0.5f, 1.0f, 0.0f,  0.0f, 0.0f, 1.0f,  // angolo alto
+
     };
 
     unsigned int VBO, VAO;//ID BUffer
@@ -103,7 +110,7 @@ int main() {
 
         ourShader.use();
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawArrays(GL_TRIANGLES, 0,6);
         // glBindVertexArray (0); // non è necessario svincolarlo ogni volta
 
 // controlla e chiama eventi e scambia i buffer
