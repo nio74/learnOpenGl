@@ -34,6 +34,7 @@ MyClassShader::MyClassShader(const char* vertexPath, const char* fragmentPath)
         // convert stream into string
         vertexCode = vShaderStream.str();
         fragmentCode = fShaderStream.str();
+
     }
     catch (const std::exception&)
     {

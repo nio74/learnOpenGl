@@ -58,23 +58,28 @@ int main() {
     //Shader("edfsdf");
 
 
-
-
-
-
     float vertices[] = {
         // positions         // colors
          0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // bottom right
         -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
-         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f,    // top
-
-         //secondo triangolo
-
-         0.1f, 0.0f, 0.0f,  0.0f, 1.0f, 0.0f, //angolo sinistro
-         1.0f, 0.0f, 0.0f,  1.0f, 0.0f, 0.0f,  // angolo destro
-         0.5f, 1.0f, 0.0f,  0.0f, 0.0f, 1.0f,  // angolo alto
-
+         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // top 
     };
+
+
+
+    //float vertices[] = {
+    //    // positions         // colors
+    //     0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // bottom right
+    //    -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
+    //     0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f,    // top
+
+    //     //secondo triangolo
+
+    //     0.1f, 0.0f, 0.0f,  0.0f, 1.0f, 0.0f, //angolo sinistro
+    //     1.0f, 0.0f, 0.0f,  1.0f, 0.0f, 0.0f,  // angolo destro
+    //     0.5f, 1.0f, 0.0f,  0.0f, 0.0f, 1.0f,  // angolo alto
+
+    //};
 
     unsigned int VBO, VAO;//ID BUffer
     glGenVertexArrays(1, &VAO);//Specifico il vertexArray
@@ -107,10 +112,11 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT);
 
         //disegnamo il nostro triangolo
-
+        float offset = 0.2f;
+        ourShader.setFloat("xOffset", offset);
         ourShader.use();
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0,6);
+        glDrawArrays(GL_TRIANGLES, 0,3);
         // glBindVertexArray (0); // non è necessario svincolarlo ogni volta
 
 // controlla e chiama eventi e scambia i buffer
